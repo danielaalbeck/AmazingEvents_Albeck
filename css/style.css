@@ -10,9 +10,9 @@
     border:1px solid black !important;;
     font-weight: bold!important;
 }
-.banner {display: flex;
+.banner1 {display: flex;
     width: 100%;
-    height: 300px;
+    height: 200px;
     align-items: center;
     justify-content: center;
     border:1px solid black;
@@ -21,13 +21,49 @@
     background-position: center;
 }
 
+.banner2{ display: flex;
+    width: 100%;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    border:1px solid black;
+    background: url(/img/optional_banner_2.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+.banner3 { display: flex;
+    width: 100%;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    border:1px solid black;
+    background: url(/img/optional_banner_5.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
 .texto {
     justify-content: center;
     color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     font-weight: bold !important;
     font-size:xx-large;
-
 }
+.upc { justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-weight: bold !important;
+    font-size:xx-large;}
+
+.pst{ justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-weight: bold !important;
+    font-size:xx-large;
+}
+
+
 #inlineCheckbox1 {border: 1px solid black;}
 #inlineCheckbox2 {border: 1px solid black;}
 #inlineCheckbox3 { border: 1px solid black;}
@@ -36,29 +72,34 @@
 
 #srch{ border: 1px solid black;}
 
- #card1{ border: 1px solid black;}
- #img1 {border: 1px solid black; }
- #card2{ border: 1px solid black;}
- #img2 {border: 1px solid black; }
+ #card1{ border: 1px solid black;
+    width: 230px;
+    height: 380px;
+}
 
- #card3{ border: 1px solid black;}
- #img3 {border: 1px solid black; }
- #card4{ border: 1px solid black;}
- #img4 {border: 1px solid black; }
+
+ #img1 {border: 1px solid black;
+    width: 100% ;
+    height: 100px;
+    object-fit: cover
+}
 
 .form-control{border: 1px solid black!important;}
 
-#ca{ border: 1px solid black;
-    background-color:palevioletred;}
+.det, html { display: flex;
+    flex-direction: column;
+     height: 100%;
+  }
+
+.dtl {flex-grow: 1;}
 
 #cb {border: 1px solid black;
         background-color:palevioletred;}
 
 #crd { background-color: darksalmon;}
-#cre{ background-color: darksalmon; }
+
 
 #mg{border: 1px solid black;}
-
 
 .table tr  {height: 2rem;
     border: 1px solid black;
@@ -66,10 +107,6 @@
 }
 .table td {border: 1px solid black;
 }
-
-
-
-
 
 .footer-bg {border-top:1px solid black;
     border-bottom:1px solid black ; 
