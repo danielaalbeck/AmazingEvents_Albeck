@@ -11,7 +11,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     </head>
-        <body>
+        <body class="det">
             <header>
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div class="container">
@@ -34,47 +34,17 @@
                     </div>
                 </nav>
             </header>
-            <main>
+            <main class="dtl">
                 <div class="banner3">
                         <h1 class="pst">PAST EVENTS</h1> 
                 </div>
                 <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-md-8 py-4">
-                            <div class="d-flex flex-wrap">
-                                <div class="form-check mx-1 mb-2">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
-                                        value="option1">
-                                    <label class="form-check-label" for="inlineCheckbox1">Category</label>
-                                </div>
-                                <div class="form-check mx-1 mb-2">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
-                                        value="option2">
-                                    <label class="form-check-label" for="inlineCheckbox2">Category</label>
-                                </div>
-                                <div class="form-check mx-1 mb-2">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
-                                        value="option3">
-                                    <label class="form-check-label" for="inlineCheckbox3">Category</label>
-                                </div>
-                                <div class="form-check mx-1 mb-2">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox4"
-                                        value="option4">
-                                    <label class="form-check-label" for="inlineCheckbox4">Category</label>
-                                </div>
-                                <div class="form-check mx-1 mb-2">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox5"
-                                        value="option5">
-                                    <label class="form-check-label" for="inlineCheckbox5">Category</label>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row" id="contenedorCheckboxpst">  
                     </div>
                         <div class="col-md-4 py-4">
                             <div class="d-flex justify-content-end">
-                                <input id="srch" class="form-control me-2" type="search" aria-label="Search"
-                                    style="max-width: 16rem;">
-                                <button class="btn btn-outline-success ms-2" type="submit">Search</button>
+                                <input type="text" name="busqueda"
+                                    style="max-width: 16rem;">  
                             </div>
                         </div>
                     </div>
@@ -82,8 +52,8 @@
             </div>      
             </main>     
             <footer class="footer-bg py-1">
-                <div class="container">
-                    <div class="row align-items-center">
+                <div class="containerf">
+                    <div class="row align-items-center mx-2">
                         <div class="col-sm-12 col-md-3 text-center text-md-start">
                             <img src="./logos/facebook.png" alt="Facebook" style="width: 3rem;">
                             <img src="./logos/instagram.png" alt="Instagram" style="width: 3rem;">
