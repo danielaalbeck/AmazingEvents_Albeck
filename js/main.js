@@ -1,46 +1,48 @@
-console.log([document])
+let eventos = [];
+let categoriasUnicas = [];
 
-const eventos = data.events;
-console.log(eventos);
+let urlApi = 'https://mindhub-xj03.onrender.com/api/amazing';
 
-const fechaActual = data.currentDate;
-console.log(fechaActual);
+async function getAmazingData () {
+    try {
+    const respuesta = await fetch(urlApi);
+    const data = await respuesta.json();
+    console.log (data.events);
+    eventos = data.events;
+    let categorias = data.events.map(event => event.category);
+    let categoriasUnicas = categorias.filter((categoria, index) => categorias.indexOf(categoria) === index);
+    console.log (categoriasUnicas);
+    crearTarjetas(eventos);
+    crearCheckbox(categoriasUnicas);
+} catch (error) {
+    console.log(error);
+  }
+  
+}   
+getAmazingData ();
 
-const events = data.events;
-for (let i = 0; i < eventos.length; i++) { console.log(eventos[i]); }
-
-let categorias = data.events.map(event => event.category);
-let categoriasUnicas = categorias.filter((categoria, index) => categorias.indexOf(categoria) === index);
-console.log(categoriasUnicas);
-
-let contenedor = document.getElementById('contenedorEventos');
-let contenedorch = document.getElementById('contenedorCheckbox');
-let buscador = document.querySelector('input[name=busqueda]');
-
-
-function mostrarTarjetas(array, contenedor) {
-    let html = '';
-    array.forEach(evento => {
-        const eventoId = evento._id;
-        html += `<div class="col-sm-3 py-4">
-            <div id=card class="card mx-3 my-2 px-1 py-2 g-1">
-                <img id=img src="${evento.image}" class="card-img-top" alt="${evento.name}">
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <h5 class="card-title">${evento.name}</h5>
-                    <p class="card-text">${evento.description}<br>Price: ${evento.price}</p>
-                    <a href="./details.html?id=${evento._id}" class="btn btn-primary">Details</a>
-                </div>
-            </div>
-        </div>`;
-    });
-    contenedor.innerHTML = html;
+function crearTarjetas (eventos) {
+let html = "";
+eventos.forEach(evento => { 
+const eventoId = evento._id;   
+html += `<div class="col-sm-3 py-4">
+<div id=card class="card my-2 px-1 py-2 g-1">
+    <img id=img src="${evento.image}" class="card-img-top" alt="${evento.name}">
+    <div class="card-body d-flex flex-column justify-content-between">
+        <h5 class="card-title">${evento.name}</h5>
+        <p id=main class="card-text">${evento.description}</p>
+        <p id=pre class="card-text">Price: ${evento.price}</p>
+        <a href="./details.html?id=${evento._id}" class="btn btn-primary">Details</a>
+    </div>
+</div>
+</div>`;  
+document.getElementById('contenedorEventos').innerHTML = html;
+});
 }
-mostrarTarjetas(events, contenedor);
 
-
-function mostrarCheckbox(array, contenedor) {
+function crearCheckbox(categoriasUnicas) {
     let html = '';
-    array.forEach(category => {
+   categoriasUnicas.forEach(category => {
         html += `<div class= "col-sm py-4">
             <div>
                 <div class="form-check">
@@ -50,12 +52,10 @@ function mostrarCheckbox(array, contenedor) {
             </div>
         </div>`;
     });
-    contenedor.innerHTML = html;
+document.getElementById('contenedorCheckbox').innerHTML = html;
 }
 
-mostrarCheckbox(categoriasUnicas, contenedorch);
-
-
+let buscador = document.querySelector('input[name=busqueda]');
 document.addEventListener('input', e => {
     if (e.target.classList.contains('form-check-input')) {
         filtradoTotal ();      
@@ -68,7 +68,7 @@ document.addEventListener('input', e => {
 
     function filtradoTotal () {
         let busqueda = buscador.value.toLowerCase();
-        let filtrados = events.filter(evento =>
+        let filtrados = eventos.filter(evento =>
             evento.name.toLowerCase().includes(busqueda));
             let formChecks = document.querySelectorAll('.form-check-input');
             let chequeados = [];
@@ -77,15 +77,17 @@ document.addEventListener('input', e => {
                     chequeados.push(input.value);
                 }
             }
+            let contenedor = document.getElementById('contenedorEventos') 
                if (chequeados.length > 0){
                filtrados = filtrados.filter(evento => chequeados.includes(evento.category));
                }
                if (filtrados.length === 0) {
         contenedor.innerHTML = '<p class="mx-5 py-3"><strong>No se encontraron resultados que coincidan con la búsqueda</strong></p>';
     } else {
-        mostrarTarjetas(filtrados, contenedor);
+        crearTarjetas(filtrados, contenedor);
     }
 }
                
 
-   
+               
+

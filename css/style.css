@@ -1,7 +1,9 @@
 *{max-width: 100%;
 }
 
-#especial{ background-color:blueviolet!important;}
+body { overflow-x: hidden;
+}
+#especial{ background-color:grey!important;}
 
 .btn{
     align-items:center!important;
@@ -46,40 +48,49 @@
 .texto {
     justify-content: center;
     color: black;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     font-weight: bold !important;
-    font-size:xx-large;
+    font-size:60px;
 }
+
 .upc { justify-content: center;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     font-weight: bold !important;
-    font-size:xx-large;}
+    font-size:60px;
+}
 
 .pst{ justify-content: center;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     font-weight: bold !important;
-    font-size:xx-large;
+    font-size:60px;
 }
 
 
-.form-check-input {border: 1px solid black!important;
-}
+.form-check-input {border: 2px solid black!important;
+    background-color: silver!important;
 
-#srch{ border: 1px solid black;}
+    }
+
 
  #card{ border: 1px solid black;
     width: 230px;
-    height: 400px;
+    height: 450px;
+    max-width: 100%;
+    background-color:grey;
+   
 }
 
-#img {border: 1px solid black;
-    max-height: 150px;
-  width: auto; 
-object-fit: cover }
+#img {
+    border: 1px solid black;
+    width: 220px;
+  height: 140px; 
+  object-fit: cover; 
+   }
 
-.form-control{border: 1px solid black!important;}
+.form-control{border: 1px solid black!important;
+    background-color:grey!important;
+}
 
 .det, html { display: flex;
     flex-direction: column;
@@ -89,19 +100,18 @@ object-fit: cover }
 .dtl {flex-grow: 1;}
 
 #cb {border: 1px solid black;
-    background-color:deeppink;}
+    background-color:grey;}
 
 #cb2 { border-radius: 4px;
     border: 1px solid black;}
 
-#crd {background-color:black;
-color: white;}
+#crd {background-color:deeppink;
+color: black;}
 
 
 #mg{border: 1px solid black;}
 
-.table tr  {height: 2rem;
-    border: 1px solid black;
+.table tr  {border: 1px solid black;
     
 }
 .table td {border: 1px solid black;
@@ -123,3 +133,54 @@ color: white;}
     justify-content: flex-start;
 }
 
+#contenedorEventos {margin-left: 60px ;
+ }
+
+ #contenedorPasado { margin-left: 60px ;
+
+ }
+
+ #contenedorFuturo {  margin-left: 60px ; 
+
+ }
+#detalleEvento {justify-content: center;
+   }
+
+main { background-color: silver;}
+
+.busc{ border-radius: 4px;
+    border: 2px solid black;
+    background-color: silver }
+
+.card-title { display: flex;
+    font-weight: bold;
+    justify-content: center;
+    ;
+}
+
+#main {display: flex;
+    justify-content: center;   
+}
+
+#pre { align-items: start;
+    font-weight: bold;
+}
+#up { display: flex;
+    justify-content: center; }
+
+#uppr{ align-items: start;
+    font-weight: bold; }
+
+#past {display: flex;
+    justify-content: center; 
+}
+#pastp { align-items: start;
+    font-weight: bold;}
+
+.form-check-label { font-weight: bold; }
+
+.stats {font-weight: bold;}
+
+table {
+table-layout: fixed; 
+}
