@@ -64,18 +64,9 @@ function crearTabla1(eventosPasados, eventos) {
 
 getAmazingData();
 
-
-function crearTabla2 (eventosFuturos, categoriasUnicas) {
+function crearTabla2(eventosFuturos, categoriasUnicas) {
   let contenedor = document.querySelector('#tabla2 tbody');
   let tbodyHtml = "";
-
-  let totalIngresos = 0;
-  let totalEstimaciones = 0;
-
-  for (let evento of eventosFuturos) {
-    totalIngresos += evento.price * evento.estimate;
-    totalEstimaciones += evento.estimate;
-  }
 
   for (let categoria of categoriasUnicas) {
     const eventosCategoria = eventosFuturos.filter(evento => evento.category === categoria);
@@ -86,12 +77,23 @@ function crearTabla2 (eventosFuturos, categoriasUnicas) {
       gananciasCategoria += evento.price * evento.estimate;
     }
 
-    const porcentajeEstimado = (gananciasCategoria / totalIngresos) * 100;
-    tbodyHtml += `<tr>`;
-    tbodyHtml += `<td>${categoria}</td>`;
-    tbodyHtml += `<td>${gananciasCategoria}</td>`;
-    tbodyHtml += `<td>${porcentajeEstimado.toFixed(2)}%</td>`;
-    tbodyHtml += `</tr>`;
+    let totalEstimadoCategoria = 0;
+    let totalCapacidadCategoria = 0;
+
+    for (let evento of eventosCategoria) {
+      totalEstimadoCategoria += evento.estimate;
+      totalCapacidadCategoria += evento.capacity;
+    }
+
+    const porcentajeEstimado = (totalEstimadoCategoria / totalCapacidadCategoria) * 100;
+
+    if (!isNaN(porcentajeEstimado) && porcentajeEstimado !== 0) {
+      tbodyHtml += `<tr>`;
+      tbodyHtml += `<td>${categoria}</td>`;
+      tbodyHtml += `<td>${gananciasCategoria}</td>`;
+      tbodyHtml += `<td>${porcentajeEstimado.toFixed(2)}%</td>`;
+      tbodyHtml += `</tr>`;
+    }
   }
 
   contenedor.innerHTML = tbodyHtml;
@@ -99,17 +101,10 @@ function crearTabla2 (eventosFuturos, categoriasUnicas) {
 
 crearTabla2(eventosFuturos, categoriasUnicas)
 
+
 function crearTabla3(eventosPasados, categoriasUnicas) {
   let contenedor = document.querySelector('#tabla3 tbody');
   let tbodyHtml = "";
-
-  let totalIngresos = 0;
-  let totalAsistencia = 0;
-
-  for (let evento of eventosPasados) {
-    totalIngresos += evento.price * evento.assistance;
-    totalAsistencia += evento.assistance;
-  }
 
   for (let categoria of categoriasUnicas) {
     const eventosCategoria = eventosPasados.filter(evento => evento.category === categoria);
@@ -120,13 +115,22 @@ function crearTabla3(eventosPasados, categoriasUnicas) {
       gananciasCategoria += evento.price * evento.assistance;
     }
 
-    const porcentajeAsistencia = (gananciasCategoria / totalIngresos) * 100;
-    tbodyHtml += `<tr>`;
-    tbodyHtml += `<td>${categoria}</td>`;
-    tbodyHtml += `<td>${gananciasCategoria}</td>`;
-    tbodyHtml += `<td>${porcentajeAsistencia.toFixed(2)}%</td>`;
-    tbodyHtml += `</tr>`;
-  }
+    let totalAsistenciaCategoria = 0;
+    let totalCapacidadCategoria = 0;
+
+    for (let evento of eventosCategoria) {
+      totalAsistenciaCategoria += evento.assistance;
+      totalCapacidadCategoria += evento.capacity;
+    }
+
+    const porcentajeAsistencia = (totalAsistenciaCategoria / totalCapacidadCategoria) * 100;
+
+      tbodyHtml += `<tr>`;
+      tbodyHtml += `<td>${categoria}</td>`;
+      tbodyHtml += `<td>${gananciasCategoria}</td>`;
+      tbodyHtml += `<td>${porcentajeAsistencia.toFixed(2)}%</td>`;
+      tbodyHtml += `</tr>`;
+    }
 
   contenedor.innerHTML = tbodyHtml;
 }

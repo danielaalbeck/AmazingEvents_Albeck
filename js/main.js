@@ -82,7 +82,7 @@ document.addEventListener('input', e => {
                filtrados = filtrados.filter(evento => chequeados.includes(evento.category));
                }
                if (filtrados.length === 0) {
-        contenedor.innerHTML = '<p class="mx-5 py-3"><strong>No se encontraron resultados que coincidan con la búsqueda</strong></p>';
+        contenedor.innerHTML = '<p class="mx-5 py-3"><strong>No search results</strong></p>';
     } else {
         crearTarjetas(filtrados, contenedor);
     }

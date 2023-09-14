@@ -184,3 +184,9 @@ main { background-color: silver;}
 table {
 table-layout: fixed; 
 }
+
+.lupa {width:26px;
+    height: 26px;
+    background-size: cover;}
+
+   
